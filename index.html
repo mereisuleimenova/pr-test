@@ -154,7 +154,7 @@ button{font:inherit;color:inherit}
   background:#fff;border:3px solid var(--edge);box-shadow:6px -6px 0 rgba(10,20,60,.3)}
 .mhead{display:flex;align-items:center;gap:12px;padding:10px 12px;color:#fff;font-size:11px;line-height:16px;
   background:repeating-linear-gradient(180deg,var(--tbHi) 0 3px,var(--tb1) 3px 10px,var(--tb2) 10px 100%)}
-.mhead img{background:#fff;border:2px solid #fff;flex:none}
+.mhead img{background:#fff;border:2px solid #fff;flex:none;width:64px;height:64px;object-fit:cover}
 .mhead small{display:block;font-size:8px;opacity:.85}
 .mlist{display:flex;flex-direction:column;padding:6px}
 .mitem{all:unset;display:grid;grid-template-columns:36px 1fr;align-items:center;gap:10px;padding:8px 10px;font-size:10px;cursor:pointer;color:var(--ink)}
@@ -207,7 +207,7 @@ button{font:inherit;color:inherit}
 </div>
 
 <div id="menu" hidden>
-  <div class="mhead"><img id="meimg" class="px" alt=""><div>Мерей<br>Сулейменова<small>PR · SMM · дизайн</small></div></div>
+  <div class="mhead"><img id="meimg" src="merei.jpg" width="64" height="64" alt="Мерей Сулейменова"><div>Мерей<br>Сулейменова</div></div>
   <div class="mlist" id="mlist"></div>
   <div class="mfoot"><button class="mitem" id="shut">Выключение</button></div>
 </div>
@@ -1286,7 +1286,7 @@ function toggleMenu(v){const on=v===undefined?menu.hidden:v;if(on===!menu.hidden
 startB.addEventListener('click',e=>{e.stopPropagation();toggleMenu()});
 document.addEventListener('pointerdown',e=>{if(!menu.hidden&&!e.target.closest('#menu,#start'))toggleMenu(false)});
 $('#logoimg').src=icon('logo',3);Object.assign($('#logoimg'),{width:21,height:21});
-$('#meimg').src=big(canvasFor('me'),2);$('#meimg').onload=function(){this.width=this.naturalWidth;this.height=this.naturalHeight};
+
 $('#warnimg').src=icon('warn',3);Object.assign($('#warnimg'),iconSize('warn',3));
 const sndimg=$('#sndimg');function setSnd(){sndimg.src=icon(muted?'mute':'speaker',2);Object.assign(sndimg,iconSize('speaker',2));$('#snd').setAttribute('aria-label',muted?'Включить звук':'Выключить звук')}
 setSnd();$('#snd').addEventListener('click',()=>{muted=!muted;store.set('merei-os-mute',muted?'1':'0');setSnd();sfx('click')});
